@@ -7,12 +7,12 @@
   "display": "standalone",
   "icons":[
     {
-      "src":"Screenshot 2024-02-19 173351.png",
+      "src":"LetsPastaLogo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src":"Screenshot 2024-02-19 173351.png",
+      "src":"LetsPastaLogo.png",
       "sizes": "512x512",
       "type": "image/png"
     }

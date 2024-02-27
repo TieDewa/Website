@@ -47,11 +47,20 @@
     margin-bottom: 20px;
   }
   input[type="text"] {
-   margin-left: 25px;
-    margin: 0 auto; /* Center the input fields horizontally */
-     width: calc(100% - 40px);
+    width: calc(100% - 40px);
     padding: 15px;
     margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+  .input-group {
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 25px;
   }
 </style>
 </head>
@@ -61,10 +70,14 @@
    <br>
   <img src="LetsPastaLogo.png" alt="Image">
   <br> <br> <br> <br><br> <br>
-  <input type="text" id="">
-  <br> <br>
-  <input type="text" id="">
-  <br> <br>
+  <div class="input-group">
+    <label for="username">Username:</label>
+    <input type="text" id="username">
+  </div>
+  <div class="input-group">
+    <label for="password">Password:</label>
+    <input type="text" id="password">
+  </div>
   <a href="dashboard.html" class="button">Login</a>
 </div>
 

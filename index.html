@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="manifest.json">
-  <script src="index.js"></script>
+<link rel="manifest" href="manifest.json">
+<script src="index.js"></script>
 <title>Mobile Screen Sample</title>
 <style>
   body {
@@ -17,6 +17,8 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    padding-top: 50px; /* Adjust top padding to move content down */
+    box-sizing: border-box; /* Include padding in total width */
   }
   .button {
     display: block;
@@ -44,6 +46,12 @@
     margin: 0 auto;
     margin-bottom: 20px;
   }
+  input[type="text"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
 </style>
 </head>
 <body>
@@ -53,16 +61,13 @@
     <h1>Welcome</h1>
   </div>
   <img src="Screenshot 2024-02-19 173351.png" alt="Sample Image">
-<br> <br>
-  &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp <input type="text" id="">
   <br> <br>
-    &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp <input type="text" id="">
+  <input type="text" id="">
   <br> <br>
-  &nbsp &nbsp  &nbsp &nbsp &nbsp <a href="dashboard.html" class="button">Login</a>
+  <input type="text" id="">
+  <br> <br>
+  <a href="dashboard.html" class="button">Login</a>
 </div>
 
 </body>
 </html>
-
-
-

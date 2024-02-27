@@ -1,13 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>PWA</title>
-<link rel="manifest" href="manifest.json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <script src="index.js"></script>
+<title>Mobile Screen Sample</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .button {
+    display: block;
+    width: calc(100% - 40px);
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #ff0000;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .button:last-child {
+    margin-bottom: 30px;
+  }
+  .welcome {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+</style>
 </head>
 <body>
-<h1>Hi, Welcome..!</h1>
-<script src="index.js"></script>
-  <a href="dashboard.html" > Dashboard</a>
+
+<div class="container">
+  <div class="welcome">
+    <h1>Welcome</h1>
+  </div>
+  <img src="Screenshot 2024-02-19 173351.png" alt="Sample Image">
+<br> <br>
+  &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp <input type="text" id="">
+  <br> <br>
+    &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp <input type="text" id="">
+  <br>
+  <a href="dashboard.html" class="button">Login</a>
+</div>
+
 </body>
 </html>
+
+
+

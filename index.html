@@ -19,6 +19,7 @@
     margin-top: -30px; /* Move the element up by 20 pixels */
     padding: 20px;
     box-sizing: border-box; /* Include padding in total width */
+    position: relative; /* Establish positioning context for absolute positioning */
   }
   .button {
     display: block;
@@ -53,14 +54,14 @@
     box-sizing: border-box;
   }
   .input-group {
-    position: relative;
     margin-bottom: 12px;
   }
-  .input-group label {
+  .input-label {
     position: absolute;
-    top: 0;
     left: 0;
-    margin-left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px; /* Adjust this value as needed */
   }
 </style>
 </head>
@@ -71,11 +72,11 @@
   <img src="LetsPastaLogo.png" alt="Image">
   <br> <br> <br> <br><br> <br>
   <div class="input-group">
-    <label for="username">Username:</label>
+    <label class="input-label" for="username">Username:</label>
     <input type="text" id="username">
   </div>
   <div class="input-group">
-    <label for="password">Password:</label>
+    <label class="input-label" for="password">Password:</label>
     <input type="text" id="password">
   </div>
   <a href="dashboard.html" class="button">Login</a>

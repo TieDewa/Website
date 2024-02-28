@@ -78,7 +78,7 @@
   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
   <br> <br> 
   <!-- Form element added -->
-  <form id="input-form" action="javascript:void(0);" method="post">
+  <form id="input-form" action="results.html" method="post">
     <label for="location-field">Location:</label>
     <!-- Location input field -->
     <input type="text" id="location-field" autocomplete="off">
@@ -86,12 +86,12 @@
     <!-- Clear location button -->
     <button type="button" class="button" id="clear-location-button">Clear Location</button>
     <br> <br>
-    <label>Input:</label>
-    <!-- Input field within the form -->
+    <label>Product:</label>
+    <!-- Input field for product -->
     <input type="text" id="input-field" autocomplete="off">
     <br> 
     <!-- Submit button within the form -->
-    <button type="button" class="button" id="submit-button">Submit</button>
+    <button type="submit" class="button" id="submit-button">Submit</button>
   </form>
 </div>
 
@@ -124,14 +124,6 @@
   submitButton.addEventListener("click", function(event) {
     if (!locationField.value) {
       alert("Please enter a location before scanning a product."); // Display popup for empty location
-    } else {
-      // Your code to handle form submission
-      // For example, you can submit the form programmatically here
-      document.getElementById("input-form").submit();
-      // Clear the input field after submission
-      inputField.value = '';
-      // Focus the input field again for continued scanning
-      inputField.focus();
     }
   });
 </script>

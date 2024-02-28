@@ -15,18 +15,20 @@
     background-color: #f2f2f2;
   }
   .container {
-    max-width: 800px;
+    max-width: 480px; /* Adjusted max-width to fit within 480px */
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box; /* Include padding in total width */
     position: relative;
   }
+  .button-container {
+    text-align: center; /* Center the buttons */
+  }
   .button {
-    display: block;
-    width: calc(85% - 30px); /* Adjusted width for smaller buttons */
+    display: inline-block; /* Display buttons inline */
+    width: calc(100% - 40px); /* Adjusted width to fit within container */
     padding: 15px;
     margin-bottom: 10px; /* Adjusted margin-bottom for spacing between buttons */
-    margin-left: 25px;
     background-color: #e81c1c;
     color: #fff;
     text-align: center;
@@ -58,7 +60,7 @@
   }
   
   .logout-button {
-    padding: 10px; /* Adjusted padding to make the button thinner */
+    width: auto; /* Adjusted width to fit content */
   }
 </style>
 </head>
@@ -67,13 +69,14 @@
 <div class="container">
   <h1>Dashboard</h1>
   <img src="LetsPastaLogo.png" alt="Image">
-  <br> <br> <br> <br>
-  <a href="productinformation.html" class="button">Scan New Inventory</a>
-  <a href="#" class="button">Move Inventory</a>
-  <a href="#" class="button">Inventory to Order</a>
-  <a href="#" class="button">Rework Inventory</a>
-  <a href="#" class="button">Product Information</a>
-  <a href="#" class="button logout-button" style="background-color: #e81c1c; width: calc(100% - 30px);">Logout</a>
+  <div class="button-container">
+    <a href="productinformation.html" class="button">Scan New Inventory</a>
+    <a href="#" class="button">Move Inventory</a>
+    <a href="#" class="button">Inventory to Order</a>
+    <a href="#" class="button">Rework Inventory</a>
+    <a href="#" class="button">Product Information</a>
+  </div>
+  <a href="#" class="button logout-button" style="background-color: #e81c1c;">Logout</a>
 </div>
 
 </body>

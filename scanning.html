@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile Screen Sample</title>
+<link rel="manifest" href="manifest.json">
+<script src="index.js"></script>
+
 <style>
+  
   body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,16 +15,21 @@
     background-color: #f2f2f2;
   }
   .container {
-    max-width: 800px;
+    max-width: 480px; /* Adjusted max-width to fit within 480px */
     margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box; /* Include padding in total width */
+    position: relative;
+  }
+  .button-container {
+    text-align: center; /* Center the buttons */
   }
   .button {
-    display: block;
-    width: calc(100% - 40px);
+    display: inline-block; /* Display buttons inline */
+    width: calc(100% - 60px); /* Adjusted width to fit within container */
     padding: 15px;
-    margin-bottom: 20px;
-    background-color: #ff0000;
+    margin-bottom: 10px; /* Adjusted margin-bottom for spacing between buttons */
+    background-color: #e81c1c;
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -29,35 +37,73 @@
     box-sizing: border-box;
   }
   .button:last-child {
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
   .welcome {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: left;
+    margin: 0;
   }
   img {
-    max-width: 100%;
+    max-width: 100px;
     height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  h1 {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    position: absolute;
+    top: 10px; /* Adjusted top position */
+    left: 20px; /* Center the title horizontally */
+  
+  }
+  
+  #back-button {
+    position: absolute;
+    top: 105px;
+    left: 20px;
+    background-color: #e81c1c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  #pasta-selection {
+    
+    font-size: 16px; /* Increased font size */
+    padding: 12px; /* Increased padding for easier selection */
+    margin-left: 20px;
+     width: calc(100% - 40px); 
+    margin-top: 50px;
+  }
+  
+  .logout-button {
+    width: 280px; /* Adjusted width to fit content */
   }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="welcome">
-    <h1>Welcome</h1>
-  </div>
-  <img src="LetsPastaLogo.png" alt="Sample Image">
-  <div class="Scanning Inventory "> <br> <br> 
-  &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp <input type="text" id="">
-  <br> <br>
+  <img src="LetsPastaLogo.png" alt="Image">
+  <br> <br> 
+ 
+  <h1>Scan New <br> Inventory</h1> <br><br>
+   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
+<br> <br> <br>  <br> 
 
-  <br> <br>
-  &nbsp &nbsp <a href="#" class="button">Submit</a>
+  &nbsp &nbsp &nbsp &nbsp &nbsp <input type="text" id="">
+
+   <a href="#" class="button" id="submit-button">Submit</a>
 </div>
 
 </body>
 </html>
+
+
+  

@@ -1,11 +1,10 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
-<script src="index.js"></script>
-
+<title>Scanning</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -125,6 +124,27 @@
     if (!locationField.value) {
       alert("Please enter a location before scanning a product."); // Display popup for empty location
     }
+  });
+</script>
+
+<script>
+  // Redirect to results.html after submitting the form
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("input-form");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission behavior
+
+      // Retrieve entered location and product data
+      const locationData = document.getElementById("location-field").value;
+      const productData = document.getElementById("input-field").value;
+
+      // Store data in sessionStorage
+      sessionStorage.setItem("location", locationData);
+      sessionStorage.setItem("product", productData);
+
+      // Redirect to results.html
+      window.location.href = "results.html";
+    });
   });
 </script>
 

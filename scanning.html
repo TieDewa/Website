@@ -76,7 +76,13 @@
   <br> <br> 
   <h1>Scanning</h1> <br><br>
   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
-  <br> <br> <br>  <br> <br>  
+  <br> <br> <br>   
+   <label for="location-field">Location:</label>
+    <input type="text" id="location-field">
+    <br> 
+    <!-- Clear location button -->
+    <button type="button" class="button" id="clear-location-button">Clear Location</button>
+    <br> <br>
   <!-- Form element added -->
   <form id="input-form" action="javascript:void(0);" method="post">
     <label>Input:</label>
@@ -84,12 +90,7 @@
     <input type="text" id="input-field">
     <br> <br>
     <!-- Location input field and label -->
-    <label for="location-field">Location:</label>
-    <input type="text" id="location-field">
-    <br> <br>
-    <!-- Clear location button -->
-    <button type="button" class="button" id="clear-location-button">Clear Location</button>
-    <br> <br>
+   
     <!-- Submit button within the form -->
     <button type="submit" class="button" id="submit-button">Submit</button>
   </form>

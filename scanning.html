@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
 <script src="index.js"></script>
-  <script src="qrCodeReader.js"></script>
-  <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"> </script>
-
 
 <style>
   body {
@@ -71,14 +68,8 @@
     margin-bottom: 12px;
   }
 </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCANNER APP</title>
 </head>
 <body>
-    <script src="./qrScript.js"></script>
-    <div style="text-align: center;">
 
 <div class="container">
   <img src="LetsPastaLogo.png" alt="Image">
@@ -86,38 +77,18 @@
   <h1>Scanning</h1> <br><br>
   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
   <br> <br> <br>  <br> <br>  
- &nbsp &nbsp <label style="align: left;">Input:</label>
-
-   <div id="show" style="display: none;">
-  <input type="text" id="result" placeholder="" >
-   </div>
+  <label>Input:</label>
+  <input type="text" id="qr-code-input" placeholder="" style="height: 40px;">
   <br> <br>
   <a href="#" class="button" id="submit-button">Submit</a>
 </div>
 
 <script>
-
-<script>
-  const html5Qrcode = new Html5Qrcode('reader');
-        <div id="reader" style="width: 500px;"></div>
-        <div id="show" style="display: none;">
-            <h4>Scanned Result</h4>
-            <p style="color: blue;" id="result"></p>
-        </div>
-    </div>
-    <script>
-        const html5Qrcode = new Html5Qrcode('reader');
-        const qrCodeSuccessCallback = (decodedText, decodedResult)=>{
-            if(decodedText){
-                document.getElementById('show').style.display = 'block';
-@@ -102,8 +27,7 @@ <h1>Scanning</h1> <br><br>
-        }
-        const config = {fps:10, qrbox:{width:250, height:250}}
-        html5Qrcode.start({facingMode:"environment"}, config,qrCodeSuccessCallback );
+  document.addEventListener('keypress', function(event) {
+    var scannedInfo = event.key;
+    document.getElementById('qr-code-input').value += scannedInfo;
+  });
 </script>
-</script>
-
-    </script>
 
 </body>
 </html>

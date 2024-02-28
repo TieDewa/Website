@@ -25,7 +25,6 @@
     text-align: center; /* Center the buttons */
   }
   .button {
-    
     display: inline-block; /* Display buttons inline */
     width: calc(100% - 40px); /* Adjusted width to fit within container */
     padding: 15px;
@@ -49,7 +48,7 @@
     height: auto;
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
   }
   
   h1 {
@@ -57,7 +56,26 @@
     padding: 0; /* Reset padding */
     position: absolute;
     top: 20px; /* Adjusted top position */
+    left: 50%; /* Center the title horizontally */
+    transform: translateX(-50%); /* Center the title horizontally */
+  }
+  
+  #back-button {
+    position: absolute;
+    top: 20px;
     left: 20px;
+    background-color: #e81c1c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  #pasta-selection {
+    width: 100%;
+    margin-top: 50px;
   }
   
   .logout-button {
@@ -68,17 +86,23 @@
 <body>
 
 <div class="container">
-  <h1>Scan New <br> Inventory</h1>
   <img src="LetsPastaLogo.png" alt="Image">
-  <br> <br> <br> <br> <br> 
-  <input type="text" id=""> <br> <br> 
+  <br> <br> 
+  <a href="dashboard.html" id="back-button">Back</a>
+  <h1>Scan New <br> Inventory</h1>
+  <br> <br> 
+  <select id="pasta-selection">
+    <option value="pasta1">Pasta 1</option>
+    <option value="pasta2">Pasta 2</option>
+    <option value="pasta3">Pasta 3</option>
+    <option value="pasta4">Pasta 4</option>
+    <option value="pasta5">Pasta 5</option>
+  </select>
+  <br> <br> 
   <div class="button-container">
-    <br> 
-  <a href="#" class="button">Submit</a>
+    <a href="#" class="button" id="submit-button">Proceed</a>
+  </div>
 </div>
-
-</body>
-</html>
 
 </body>
 </html>

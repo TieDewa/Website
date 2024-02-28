@@ -96,27 +96,17 @@
   // Add event listener to input field for 'input' event
   inputField.addEventListener("input", function(event) {
     const value = event.target.value;
-    if (value.length >= 9) {
-      // Find the closest text input element
-      const closestTextInput = inputField.closest('form').querySelector('input[type="text"]');
-      if (closestTextInput) {
-        // Set the value of the closest text input element
-        closestTextInput.value = value;
-        // Trigger a tab key press event
-        const tabKeyEvent = new KeyboardEvent("keydown", { key: "Tab" });
-        closestTextInput.dispatchEvent(tabKeyEvent);
-      }
+    if (value.length >= 12) {
+      // Submit the form
+      document.getElementById("input-form").submit();
       // Clear the input field
       inputField.value = '';
-
-      // Store the entered data in sessionStorage to pass it to the next page
-      sessionStorage.setItem("enteredData", value);
-
-      // Navigate to the next page (results.html)
-      window.location.href = "results.html";
+      // Focus the input field again
+      inputField.focus();
     }
   });
 </script>
+
 
 </body>
 </html>

@@ -33,18 +33,19 @@
 <div class="container">
   <h1>Results</h1>
   <p>The information entered on the previous page is:</p>
-  <!-- Display entered data here -->
+  <!-- Display entered location and product data here -->
   <div id="entered-data"></div>
 </div>
 
 <script>
-  // Retrieve entered data from sessionStorage
-  const enteredData = sessionStorage.getItem("enteredData");
+  // Retrieve entered location and product data from sessionStorage
+  const locationData = sessionStorage.getItem("location");
+  const productData = sessionStorage.getItem("product");
 
-  // Display entered data on the page
+  // Display entered location and product data on the page
   const enteredDataElement = document.getElementById("entered-data");
-  if (enteredData) {
-    enteredDataElement.textContent = enteredData;
+  if (locationData && productData) {
+    enteredDataElement.innerHTML = `<p>Location: ${locationData}</p><p>Product: ${productData}</p>`;
   } else {
     enteredDataElement.textContent = "No data entered.";
   }

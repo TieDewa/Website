@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<script src="index.js"></script>
+<title>Product Information</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: -30px; /* Move the element up by 20 pixels */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in total width */
+  }
+  .button {
+    display: block;
+    width: calc(100% - 40px);
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #e81c1c;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .button:last-child {
+    margin: 0 auto;
+  }
+  .welcome {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="welcome">
+    <h1>Product Information</h1>
+  </div>
+  <img src="product_image.png" alt="Product Image">
+  <br>
+  <p>This is the product information page. You can display detailed information about your products here.</p>
+  <a href="#" class="button" style="background-color: #e81c1c; margin-bottom: 0;">Logout</a>
+</div>
+
+</body>
+</html>

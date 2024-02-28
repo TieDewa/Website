@@ -55,7 +55,7 @@
   h1 {
     margin: 0; /* Reset margin */
     padding: 0; /* Reset padding */
-    text-align: center; /* Center the text */
+    text-align: left; /* Center the text */
   }
   
   .logout-button {
@@ -65,6 +65,21 @@
   .message-box {
     text-align: center;
     margin-top: 50px; /* Adjusted margin-top for spacing */
+    font-size: 18px; /* Increased font size */
+    font-weight: bold; /* Made the text bold */
+  }
+  .cancel-button {
+    display: inline-block;
+    width: 200px;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #e81c1c; 
+    border-radius: 5px;
+    box-sizing: border-box;
   }
 </style>
 </head>
@@ -74,12 +89,12 @@
   <h1>Logout</h1>
    <img src="LetsPastaLogo.png" alt="Image">
   <div class="message-box">
-    <label for="logout-confirm">Do you want to logout?</label><br>
+    <label for="logout-confirm" style="font-size: 24px;">Do you want to logout?</label><br> 
   </div>
   <br> <br> <br>
   <div class="button-container">
     <a href="index.html" class="button">Confirm Logout</a> <br>
-    <a href="dashboard.html" class="button">Cancel</a>
+    <a href="dashboard.html" class="cancel-button">Cancel</a> 
   </div>
 </div>
 

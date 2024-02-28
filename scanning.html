@@ -5,15 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
 <script src="index.js"></script>
-  <script
-  type="module"
-  src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
-></script>
-<script
-  nomodule
-  src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
-></script>
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.0.0/html5-qrcode.min.js"></script>
+
   
 
 <style>
@@ -90,22 +83,25 @@
  &nbsp &nbsp <label style="align: left;">Input:</label>
     
    
-  <input type="text" id="qr-code-input" placeholder="" >
+ <input type="text" id="qr-input" placeholder="Scan QR code here">
 
   <br> <br>
   <a href="#" class="button" id="submit-button">Submit</a>
 </div>
 
-<script>
-  document.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-     .
-    } else {
-      var scannedInfo = event.key;
-      document.getElementById('qr-code-input').value += scannedInfo;
-    }
-  });
-</script>
+ <script>
+        // Initialize QR code scanner
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-input", { fps: 10, qrbox: 250 });
+
+        // Callback function to handle scanned QR code data
+        function onScanSuccess(qrCodeMessage) {
+            document.getElementById('qr-input').value = qrCodeMessage;
+        }
+
+        // Start QR code scanning
+        html5QrcodeScanner.render(onScanSuccess);
+    </script>
 
 </body>
 </html>

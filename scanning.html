@@ -81,12 +81,10 @@
   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
   <br> <br> <br>  <br> <br>  
  &nbsp &nbsp <label style="align: left;">Input:</label>
-   <canvas hidden="" id="qr-canvas"></canvas>
-
-    <div id="qr-result" hidden="">
-        <b>Data:</b> <span id="outputData"></span>
-    </div>
-  <input type="text" id="qr-code-input" placeholder="" >
+    
+   <div id="show" style="display: none;">
+  <input type="text" id="result" placeholder="" >
+   </div>
   <br> <br>
   <a href="#" class="button" id="submit-button">Submit</a>
 </div>
@@ -94,23 +92,16 @@
 <script>
   
 <script>
-  // Function to handle keypress event
-  function handleKeyPress(event) {
-    if (event.key !== 'Enter') {
-      var scannedInfo = event.key;
-      document.getElementById('qr-code-input').value += scannedInfo;
-    }
-  }
-
-  // Add event listener for keypress when textbox is focused
-  document.getElementById('qr-code-input').addEventListener('focus', function() {
-    document.addEventListener('keypress', handleKeyPress);
-  });
-
-  // Remove event listener for keypress when textbox loses focus
-  document.getElementById('qr-code-input').addEventListener('blur', function() {
-    document.removeEventListener('keypress', handleKeyPress);
-  });
+  const html5Qrcode = new Html5Qrcode('reader');
+        const qrCodeSuccessCallback = (decodedText, decodedResult)=>{
+            if(decodedText){
+                document.getElementById('show').style.display = 'block';
+                document.getElementById('result').textContent = decodedText;
+                html5Qrcode.stop();
+            }
+        }
+        const config = {fps:10, qrbox:{width:250, height:250}}
+        html5Qrcode.start({facingMode:"environment"}, config,qrCodeSuccessCallback );
 </script>
 </script>
 

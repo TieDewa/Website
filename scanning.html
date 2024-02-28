@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
-<title>Scanning</title>
+<script src="index.js"></script>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -77,7 +78,7 @@
   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
   <br> <br> 
   <!-- Form element added -->
-  <form id="input-form" action="results.html" method="post">
+  <form id="input-form" action="#" method="post">
     <label for="location-field">Location:</label>
     <!-- Location input field -->
     <input type="text" id="location-field" autocomplete="off">
@@ -90,7 +91,7 @@
     <input type="text" id="input-field" autocomplete="off">
     <br> 
     <!-- Submit button within the form -->
-    <button type="submit" class="button" id="submit-button">Submit</button>
+    <button type="button" class="button" id="submit-button">Submit</button>
   </form>
 </div>
 
@@ -106,10 +107,8 @@
 
     const value = event.target.value;
     if (value.length >= 12) {
-      // Clear the input field
-      inputField.value = '';
-      // Focus the input field again
-      inputField.focus();
+      // Automatically submit the form
+      submitForm();
     }
   });
 
@@ -121,31 +120,27 @@
 
   // Add event listener to submit button
   submitButton.addEventListener("click", function(event) {
+    // Manually check if the location field is not empty before submitting
     if (!locationField.value) {
       alert("Please enter a location before scanning a product."); // Display popup for empty location
+      return;
     }
+    submitForm();
   });
-</script>
 
-<script>
-  // Redirect to results.html after submitting the form
-  document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("input-form");
-    form.addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent default form submission behavior
+  // Function to submit the form
+  function submitForm() {
+    // Retrieve entered location and product data
+    const locationData = document.getElementById("location-field").value;
+    const productData = document.getElementById("input-field").value;
 
-      // Retrieve entered location and product data
-      const locationData = document.getElementById("location-field").value;
-      const productData = document.getElementById("input-field").value;
+    // Store data in sessionStorage
+    sessionStorage.setItem("location", locationData);
+    sessionStorage.setItem("product", productData);
 
-      // Store data in sessionStorage
-      sessionStorage.setItem("location", locationData);
-      sessionStorage.setItem("product", productData);
-
-      // Redirect to results.html
-      window.location.href = "results.html";
-    });
-  });
+    // Redirect to results.html
+    window.location.href = "results.html";
+  }
 </script>
 
 </body>

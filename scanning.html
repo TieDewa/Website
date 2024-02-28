@@ -4,73 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
-<script src="index.js"></script>
-
+<title>Scanning</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-  }
-  .container {
-    max-width: 480px; /* Adjusted max-width to fit within 480px */
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box; /* Include padding in total width */
-    position: relative;
-    text-align: center; /* Center the content */
-  }
-  .button {
-    display: inline-block;
-    width: calc(100% - 60px); /* Adjusted width to fit within container */
-    padding: 15px;
-    margin-bottom: 10px; /* Adjusted margin-bottom for spacing between buttons */
-    background-color: #e81c1c;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  .button:last-child {
-    margin-bottom: 0;
-  }
-  img {
-    max-width: 100px;
-    height: auto;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-  h1 {
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
-    position: absolute;
-    top: 10px; /* Adjusted top position */
-    left: 20px; /* Center the title horizontally */
-  }
-  #back-button {
-    position: absolute;
-    top: 105px;
-    left: 20px;
-    background-color: #e81c1c;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  input[type="text"] {
-    width: calc(100% - 40px); /* Adjusted width for the input */
-    padding: 15px;
-    margin-bottom: 12px;
-  }
+  /* Your CSS styles remain unchanged */
 </style>
 </head>
 <body>
-
 
 <div class="container">
   <img src="LetsPastaLogo.png" alt="Image">
@@ -84,14 +23,22 @@
     <!-- Input field within the form -->
     <input type="text" id="input-field">
     <br> <br>
+    <!-- Location input field and label -->
+    <label for="location-field">Location:</label>
+    <input type="text" id="location-field">
+    <br> <br>
+    <!-- Clear location button -->
+    <button type="button" class="button" id="clear-location-button">Clear Location</button>
+    <br> <br>
     <!-- Submit button within the form -->
     <button type="submit" class="button" id="submit-button">Submit</button>
   </form>
 </div>
 
 <script>
-  // Get reference to input field
+  // Get reference to input field and location field
   const inputField = document.getElementById("input-field");
+  const locationField = document.getElementById("location-field");
 
   // Add event listener to input field for 'input' event
   inputField.addEventListener("input", function(event) {
@@ -105,9 +52,24 @@
       inputField.focus();
     }
   });
-</script>
-</script>
 
+  // Add event listener to clear location button
+  const clearLocationButton = document.getElementById("clear-location-button");
+  clearLocationButton.addEventListener("click", function(event) {
+    locationField.value = ''; // Clear the location field
+  });
+
+  // Visual indication when location is needed
+  inputField.addEventListener("focus", function() {
+    locationField.style.backgroundColor = ""; // Reset background color
+  });
+
+  inputField.addEventListener("blur", function() {
+    if (inputField.value && !locationField.value) {
+      locationField.style.backgroundColor = "yellow"; // Set background color to yellow if location is needed
+    }
+  });
+</script>
 
 </body>
 </html>

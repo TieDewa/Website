@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
 <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.0.0/dist/jsQR.js"></script>
 
 <style>
   
@@ -20,6 +21,7 @@
     padding: 20px;
     box-sizing: border-box; /* Include padding in total width */
     position: relative;
+    text-align: center; /* Center the content */
   }
   .button-container {
     text-align: center; /* Center the buttons */
@@ -57,7 +59,6 @@
     position: absolute;
     top: 10px; /* Adjusted top position */
     left: 20px; /* Center the title horizontally */
-  
   }
   
   #back-button {
@@ -73,13 +74,26 @@
     text-decoration: none;
   }
   
-  #pasta-selection {
-    
-    font-size: 16px; /* Increased font size */
-    padding: 12px; /* Increased padding for easier selection */
-    margin-left: 20px;
-     width: calc(100% - 40px); 
-    margin-top: 50px;
+  label, input {
+    display: inline-block;
+    vertical-align: middle; /* Align elements vertically */
+  }
+  
+  label {
+    margin-right: 10px; /* Add spacing between label and input */
+  }
+  
+  input {
+    margin-left: 0; /* Reset left margin for the input */
+    width: calc(100% - 130px); /* Adjusted width for the input */
+    text-align: left; /* Align text to the left */
+  }
+    input[type="text"] {
+   margin-left: 25px;
+    margin: 0 auto; /* Center the input fields horizontally */
+     width: calc(100% - 40px);
+    padding: 15px;
+    margin-bottom: 12px;
   }
   
   .logout-button {
@@ -96,14 +110,31 @@
   <h1>Scanning</h1> <br><br>
    <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
 <br> <br> <br>  <br> <br>  
-  &nbsp &nbsp  <label>Input:</label>
-  &nbsp &nbsp &nbsp  <input type="text" id="">
+  <label>Input:</label>
+ <input type="text" id="qr-code-input" placeholder="">
 <br> <br>
    <a href="#" class="button" id="submit-button">Submit</a>
 </div>
 
+<script>
+  document.getElementById('qr-input').addEventListener('input', function(event) {
+    // Assume qrCodeScanner() is a function that scans a QR code and returns its information
+    var scannedInfo = qrCodeScanner();
+    if (scannedInfo) {
+      document.getElementById('qr-input').value = scannedInfo;
+    }
+  });
+  function qrCodeScanner(imageData) {
+  // Decode the QR code from the image data using jsQR
+  const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+  // Check if a QR code was found
+  if (code) {
+    // Fill the scanned QR code data into the textbox
+    document.getElementById('qr-code-input').value = code.data;
+  }
+};
+</script>
+
 </body>
 </html>
-
-
-  

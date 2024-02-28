@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
 <script src="index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.0.0/dist/jsQR.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.0.0/dist/jsQR.js"></script>
 
 <style>
-  
   body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -16,21 +15,18 @@
     background-color: #f2f2f2;
   }
   .container {
-    max-width: 480px; /* Adjusted max-width to fit within 480px */
+    max-width: 480px;
     margin: 0 auto;
     padding: 20px;
-    box-sizing: border-box; /* Include padding in total width */
+    box-sizing: border-box;
     position: relative;
-    text-align: center; /* Center the content */
-  }
-  .button-container {
-    text-align: center; /* Center the buttons */
+    text-align: center;
   }
   .button {
-    display: inline-block; /* Display buttons inline */
-    width: calc(100% - 60px); /* Adjusted width to fit within container */
+    display: inline-block;
+    width: calc(100% - 60px);
     padding: 15px;
-    margin-bottom: 10px; /* Adjusted margin-bottom for spacing between buttons */
+    margin-bottom: 10px;
     background-color: #e81c1c;
     color: #fff;
     text-align: center;
@@ -41,10 +37,6 @@
   .button:last-child {
     margin-bottom: 0;
   }
-  .welcome {
-    text-align: left;
-    margin: 0;
-  }
   img {
     max-width: 100px;
     height: auto;
@@ -52,15 +44,13 @@
     top: 20px;
     right: 20px;
   }
-  
   h1 {
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
+    margin: 0;
+    padding: 0;
     position: absolute;
-    top: 10px; /* Adjusted top position */
-    left: 20px; /* Center the title horizontally */
+    top: 10px;
+    left: 20px;
   }
-  
   #back-button {
     position: absolute;
     top: 105px;
@@ -73,31 +63,10 @@
     cursor: pointer;
     text-decoration: none;
   }
-  
-  label, input {
-    display: inline-block;
-    vertical-align: middle; /* Align elements vertically */
-  }
-  
-  label {
-    margin-right: 10px; /* Add spacing between label and input */
-  }
-  
-  input {
-    margin-left: 0; /* Reset left margin for the input */
-    width: calc(100% - 130px); /* Adjusted width for the input */
-    text-align: left; /* Align text to the left */
-  }
-    input[type="text"] {
-   margin-left: 25px;
-    margin: 0 auto; /* Center the input fields horizontally */
-     width: calc(100% - 40px);
+  input[type="text"] {
+    width: calc(100% - 40px);
     padding: 15px;
     margin-bottom: 12px;
-  }
-  
-  .logout-button {
-    width: 280px; /* Adjusted width to fit content */
   }
 </style>
 </head>
@@ -106,34 +75,61 @@
 <div class="container">
   <img src="LetsPastaLogo.png" alt="Image">
   <br> <br> 
- 
   <h1>Scanning</h1> <br><br>
-   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
-<br> <br> <br>  <br> <br>  
+  <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
+  <br> <br> <br>  <br> <br>  
   <label>Input:</label>
- <input type="text" id="qr-code-input" placeholder="" style="height: 40px;">
-<br> <br>
-   <a href="#" class="button" id="submit-button">Submit</a>
+  <input type="text" id="qr-code-input" placeholder="" style="height: 40px;">
+  <br> <br>
+  <a href="#" class="button" id="submit-button">Submit</a>
 </div>
 
 <script>
-  document.getElementById('qr-input').addEventListener('input', function(event) {
-    // Assume qrCodeScanner() is a function that scans a QR code and returns its information
-    var scannedInfo = qrCodeScanner();
-    if (scannedInfo) {
-      document.getElementById('qr-input').value = scannedInfo;
-    }
+  document.getElementById('qr-code-input').addEventListener('click', function() {
+    qrCodeScanner();
   });
-  function qrCodeScanner(imageData) {
-  // Decode the QR code from the image data using jsQR
-  const code = jsQR(imageData.data, imageData.width, imageData.height);
 
-  // Check if a QR code was found
-  if (code) {
-    // Fill the scanned QR code data into the textbox
-    document.getElementById('qr-code-input').value = code.data;
+  function qrCodeScanner() {
+    // Access the video element
+    const video = document.createElement('video');
+    // Access the canvas element
+    const canvasElement = document.createElement('canvas');
+    const canvas = canvasElement.getContext('2d');
+
+    // Access the QR code input element
+    const qrCodeInput = document.getElementById('qr-code-input');
+
+    // Request access to the device camera
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+      .then(function(stream) {
+        // Set the video source to the camera stream
+        video.srcObject = stream;
+        // Play the video
+        video.play();
+        requestAnimationFrame(tick);
+      });
+
+    function tick() {
+      // If the video is playing
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        // Set the canvas size to match the video size
+        canvasElement.width = video.videoWidth;
+        canvasElement.height = video.videoHeight;
+        // Draw the video frame onto the canvas
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        // Decode the QR code from the canvas image
+        const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        const code = jsQR(imageData.data, imageData.width, imageData.height);
+        // If a QR code is detected
+        if (code) {
+          // Set the value of the input field to the QR code data
+          qrCodeInput.value = code.data;
+        }
+      }
+      // Continue to request animation frames
+      requestAnimationFrame(tick);
+    }
   }
-};
 </script>
 
 </body>

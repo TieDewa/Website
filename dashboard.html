@@ -14,38 +14,42 @@
     background-color: #f2f2f2;
   }
   .container {
-    max-width: 800px;
+    width: 800px;
+    height: 480px;
     margin: 0 auto;
-    margin-top: -30px; /* Move the element up by 20 pixels */
     padding: 20px;
-    box-sizing: border-box; /* Include padding in total width */
+    box-sizing: border-box;
+    position: relative;
   }
   .button {
     display: block;
-    width: calc(100% - 40px);
-    padding: 15px;
-    margin-bottom: 20px;
-    margin-left: 25px;
+    width: calc(50% - 20px);
+    padding: 10px;
+    margin: 5px;
     background-color: #e81c1c;
     color: #fff;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
     box-sizing: border-box;
+    float: left;
   }
   .button:last-child {
-    margin: 0 auto;
+    margin-bottom: 0;
   }
   .welcome {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: left;
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
   }
   img {
-    max-width: 100%;
+    max-width: 150px;
     height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 </style>
 </head>
@@ -56,13 +60,13 @@
     <h1>Dashboard</h1>
   </div>
   <img src="LetsPastaLogo.png" alt="Image">
-  <br>
+  <br style="clear: both;">
   <a href="productinformation.html" class="button">Scan New Inventory</a>
   <a href="#" class="button">Move Inventory</a>
   <a href="#" class="button">Inventory to Order</a>
   <a href="#" class="button">Rework Inventory</a>
   <a href="#" class="button">Product Information</a>
-  <a href="#" class="button" style="background-color: #e81c1c; margin-bottom: 0;">Logout</a>
+  <a href="#" class="button" style="background-color: #e81c1c;">Logout</a>
 </div>
 
 </body>

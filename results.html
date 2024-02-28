@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<title>Results</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .container {
+    max-width: 480px; /* Adjusted max-width to fit within 480px */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in total width */
+    text-align: center; /* Center the content */
+  }
+  h1 {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+  }
+  p {
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Results</h1>
+  <p>The information entered on the previous page is:</p>
+  <!-- Display entered data here -->
+  <div id="entered-data"></div>
+</div>
+
+<script>
+  // Retrieve entered data from sessionStorage
+  const enteredData = sessionStorage.getItem("enteredData");
+
+  // Display entered data on the page
+  const enteredDataElement = document.getElementById("entered-data");
+  if (enteredData) {
+    enteredDataElement.textContent = enteredData;
+  } else {
+    enteredDataElement.textContent = "No data entered.";
+  }
+</script>
+
+</body>
+</html>

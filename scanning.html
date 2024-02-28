@@ -1,98 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="manifest" href="manifest.json">
-<script src="index.js"></script>
-  <script src="qrCodeReader.js"></script>
-  <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"> </script>
-  
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-  }
-  .container {
-    max-width: 480px; /* Adjusted max-width to fit within 480px */
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box; /* Include padding in total width */
-    position: relative;
-    text-align: center; /* Center the content */
-  }
-  .button {
-    display: inline-block;
-    width: calc(100% - 60px); /* Adjusted width to fit within container */
-    padding: 15px;
-    margin-bottom: 10px; /* Adjusted margin-bottom for spacing between buttons */
-    background-color: #e81c1c;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  .button:last-child {
-    margin-bottom: 0;
-  }
-  img {
-    max-width: 100px;
-    height: auto;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-  h1 {
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
-    position: absolute;
-    top: 10px; /* Adjusted top position */
-    left: 20px; /* Center the title horizontally */
-  }
-  #back-button {
-    position: absolute;
-    top: 105px;
-    left: 20px;
-    background-color: #e81c1c;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  input[type="text"] {
-    width: calc(100% - 40px); /* Adjusted width for the input */
-    padding: 15px;
-    margin-bottom: 12px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCANNER APP</title>
 </head>
 <body>
+    <script src="./qrScript.js"></script>
+    <div style="text-align: center;">
 
-<div class="container">
-  <img src="LetsPastaLogo.png" alt="Image">
-  <br> <br> 
-  <h1>Scanning</h1> <br><br>
-  <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
-  <br> <br> <br>  <br> <br>  
- &nbsp &nbsp <label style="align: left;">Input:</label>
-    
-   <div id="show" style="display: none;">
-  <input type="text" id="result" placeholder="" >
-   </div>
-  <br> <br>
-  <a href="#" class="button" id="submit-button">Submit</a>
-</div>
-
-<script>
-  
-<script>
-  const html5Qrcode = new Html5Qrcode('reader');
+        <div id="reader" style="width: 500px;"></div>
+        <div id="show" style="display: none;">
+            <h4>Scanned Result</h4>
+            <p style="color: blue;" id="result"></p>
+        </div>
+    </div>
+    <script>
+        const html5Qrcode = new Html5Qrcode('reader');
         const qrCodeSuccessCallback = (decodedText, decodedResult)=>{
             if(decodedText){
                 document.getElementById('show').style.display = 'block';
@@ -102,8 +27,7 @@
         }
         const config = {fps:10, qrbox:{width:250, height:250}}
         html5Qrcode.start({facingMode:"environment"}, config,qrCodeSuccessCallback );
-</script>
-</script>
-
+    </script>
+    
 </body>
 </html>

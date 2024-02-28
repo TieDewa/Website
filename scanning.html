@@ -71,30 +71,41 @@
 </head>
 <body>
 
+
 <div class="container">
   <img src="LetsPastaLogo.png" alt="Image">
   <br> <br> 
   <h1>Scanning</h1> <br><br>
   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
   <br> <br> <br>  <br> <br>  
-  <label>Input:</label>
-  <input type="text" id="input-field">
-  <br> <br>
-  <a href="#" class="button" id="submit-button">Submit</a>
+  <!-- Form element added -->
+  <form id="input-form" action="dashboard.html" method="post">
+    <label>Input:</label>
+    <!-- Input field within the form -->
+    <input type="text" id="input-field">
+    <br> <br>
+    <!-- Submit button within the form -->
+    <button type="submit" class="button" id="submit-button">Submit</button>
+  </form>
 </div>
 
 <script>
-  // Get reference to input field and submit button
-  const inputField = document.getElementById("input-field");
-  const submitButton = document.getElementById("submit-button");
+  // Get reference to input form
+  const inputForm = document.getElementById("input-form");
 
-  // Add event listener to input field
-  inputField.addEventListener("input", function() {
-    // Check if input field value length is at least 9 characters
-    if (inputField.value.length >= 9) {
-      // If so, trigger a click event on the submit button
-      submitButton.click();
-    }
+  // Add event listener to form for 'submit' event
+  inputForm.addEventListener("submit", function(event) {
+    // Prevent default form submission behavior
+    event.preventDefault();
+    
+    // Get the entered data from the input field
+    const inputData = document.getElementById("input-field").value;
+
+    // Store the entered data in sessionStorage (or localStorage) to pass it to the next page
+    sessionStorage.setItem("enteredData", inputData);
+
+    // Navigate to the next page (dashboard.html)
+    window.location.href = "dashboard.html";
   });
 </script>
 

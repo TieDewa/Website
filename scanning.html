@@ -76,30 +76,30 @@
   <br> <br> 
   <h1>Scanning</h1> <br><br>
   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
-  <br> <br>   
-   <label for="location-field">Location:</label>
+  <br> <br> <br>  <br> <br>  
+  <!-- Form element added -->
+  <form id="input-form" action="javascript:void(0);" method="post">
+    <label for="location-field">Location:</label>
     <input type="text" id="location-field">
-    <br> 
+    <br> <br>
     <!-- Clear location button -->
     <button type="button" class="button" id="clear-location-button">Clear Location</button>
     <br> <br>
-  <!-- Form element added -->
-  <form id="input-form" action="javascript:void(0);" method="post">
     <label>Input:</label>
     <!-- Input field within the form -->
     <input type="text" id="input-field">
     <br> <br>
-    <!-- Location input field and label -->
-   
     <!-- Submit button within the form -->
-    <button type="submit" class="button" id="submit-button">Submit</button>
+    <button type="button" class="button" id="submit-button">Submit</button>
   </form>
 </div>
 
+
 <script>
-  // Get reference to input field and location field
+  // Get reference to input fields, location field, and submit button
   const inputField = document.getElementById("input-field");
   const locationField = document.getElementById("location-field");
+  const submitButton = document.getElementById("submit-button");
 
   // Add event listener to input field for 'input' event
   inputField.addEventListener("input", function(event) {
@@ -120,17 +120,18 @@
     locationField.value = ''; // Clear the location field
   });
 
-  // Visual indication when location is needed
-  inputField.addEventListener("focus", function() {
-    locationField.style.backgroundColor = ""; // Reset background color
-  });
-
-  inputField.addEventListener("blur", function() {
-    if (inputField.value && !locationField.value) {
-      locationField.style.backgroundColor = "yellow"; // Set background color to yellow if location is needed
+  // Add event listener to submit button
+  submitButton.addEventListener("click", function(event) {
+    if (!locationField.value) {
+      alert("Please enter a location before scanning a product."); // Display popup for empty location
+    } else {
+      // Your code to handle form submission
+      // For example, you can submit the form programmatically here
+      document.getElementById("input-form").submit();
     }
   });
 </script>
+
 
 </body>
 </html>

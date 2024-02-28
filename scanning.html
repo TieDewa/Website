@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.json">
 <script src="index.js"></script>
+  <script src="qrCodeReader.js"></script>
+  <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"> </script>
+  
 
 <style>
   body {
@@ -78,6 +81,11 @@
   <a href="dashboard.html" id="back-button">Back</a><br> <br> <br> 
   <br> <br> <br>  <br> <br>  
  &nbsp &nbsp <label style="align: left;">Input:</label>
+   <canvas hidden="" id="qr-canvas"></canvas>
+
+    <div id="qr-result" hidden="">
+        <b>Data:</b> <span id="outputData"></span>
+    </div>
   <input type="text" id="qr-code-input" placeholder="" >
   <br> <br>
   <a href="#" class="button" id="submit-button">Submit</a>

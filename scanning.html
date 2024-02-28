@@ -85,51 +85,12 @@
 </div>
 
 <script>
-  document.getElementById('qr-code-input').addEventListener('click', function() {
-    qrCodeScanner();
-  });
-
-  function qrCodeScanner() {
-    // Access the video element
-    const video = document.createElement('video');
-    // Access the canvas element
-    const canvasElement = document.createElement('canvas');
-    const canvas = canvasElement.getContext('2d');
-
-    // Access the QR code input element
-    const qrCodeInput = document.getElementById('qr-code-input');
-
-    // Request access to the device camera
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-      .then(function(stream) {
-        // Set the video source to the camera stream
-        video.srcObject = stream;
-        // Play the video
-        video.play();
-        requestAnimationFrame(tick);
-      });
-
-    function tick() {
-      // If the video is playing
-      if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        // Set the canvas size to match the video size
-        canvasElement.width = video.videoWidth;
-        canvasElement.height = video.videoHeight;
-        // Draw the video frame onto the canvas
-        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-        // Decode the QR code from the canvas image
-        const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        const code = jsQR(imageData.data, imageData.width, imageData.height);
-        // If a QR code is detected
-        if (code) {
-          // Set the value of the input field to the QR code data
-          qrCodeInput.value = code.data;
-        }
-      }
-      // Continue to request animation frames
-      requestAnimationFrame(tick);
+  document.getElementById('qr-code-input').addEventListener('change', function() {
+    var scannedInfo = this.value;
+    if (scannedInfo) {
+      document.getElementById('qr-code-input').value = scannedInfo;
     }
-  }
+  });
 </script>
 
 </body>

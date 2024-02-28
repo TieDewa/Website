@@ -85,10 +85,25 @@
 
 <script>
   
-  document.addEventListener('keypress', function(event) {
-    var scannedInfo = event.key;
-    document.getElementById('qr-code-input').value += scannedInfo;
+<script>
+  // Function to handle keypress event
+  function handleKeyPress(event) {
+    if (event.key !== 'Enter') {
+      var scannedInfo = event.key;
+      document.getElementById('qr-code-input').value += scannedInfo;
+    }
+  }
+
+  // Add event listener for keypress when textbox is focused
+  document.getElementById('qr-code-input').addEventListener('focus', function() {
+    document.addEventListener('keypress', handleKeyPress);
   });
+
+  // Remove event listener for keypress when textbox loses focus
+  document.getElementById('qr-code-input').addEventListener('blur', function() {
+    document.removeEventListener('keypress', handleKeyPress);
+  });
+</script>
 </script>
 
 </body>

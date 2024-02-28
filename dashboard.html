@@ -17,25 +17,26 @@
   .container {
     max-width: 800px;
     margin: 0 auto;
-    margin-top: -30px; /* Move the element up by 20 pixels */
+    margin-top: 20px; /* Adjusted margin to align with image */
     padding: 20px;
     box-sizing: border-box; /* Include padding in total width */
+    position: relative;
   }
   .button {
     display: block;
-    width: calc(100% - 40px);
-    padding: 15px;
-    margin-bottom: 20px;
-    margin-left: 25px;
+    width: calc(50% - 30px); /* Adjusted button width */
+    padding: 10px;
+    margin: 5px;
     background-color: #e81c1c;
     color: #fff;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
     box-sizing: border-box;
+    float: left;
   }
   .button:last-child {
-    margin: 0 auto;
+    margin-bottom: 0;
   }
   .welcome {
    text-align: left;
@@ -43,28 +44,27 @@
     position: absolute;
     top: 20px;
     left: 20px;
-   
   }
   img {
-      max-width: 100px;
+    max-width: 100px;
     height: auto;
     position: absolute;
     top: 20px;
     right: 20px;
-  
   }
-   title {
+  h1 {
     position: absolute;
-    top: 5px;
-    left: 20px;
+    top: 20px;
+    left: 140px; /* Adjusted left position */
+    margin: 0;
+    padding: 0;
+  }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="welcome">
-    <h1>Dashboard</h1>
-  </div>
+  <h1>Dashboard</h1>
   <img src="LetsPastaLogo.png" alt="Image">
   <br> <br> <br> <br>
   <a href="productinformation.html" class="button">Scan New Inventory</a>
@@ -77,4 +77,3 @@
 
 </body>
 </html>
-

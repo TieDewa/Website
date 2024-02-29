@@ -33,6 +33,7 @@
 <div class="container">
   <h1>Results</h1>
   <p>The information entered on the previous page is:</p>
+  <strong id="pasta-selection"></strong>
   <!-- Display entered location and product data here -->
   <div id="entered-data"></div>
 </div>
@@ -41,7 +42,11 @@
   // Retrieve entered location and product data from sessionStorage
   const locationData = sessionStorage.getItem("location");
   const productData = sessionStorage.getItem("product");
-
+  const urlParams = new URLSearchParams(window.location.search);
+  const pastaSelection = urlParams.get('pasta_selection');
+  
+  // Displaying the pasta selection on the page
+  document.getElementById('pasta-selection').textContent = pastaSelection;
   // Display entered location and product data on the page
   const enteredDataElement = document.getElementById("entered-data");
   if (locationData && productData) {

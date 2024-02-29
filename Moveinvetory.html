@@ -101,7 +101,7 @@
 
 <script>
   // Get reference to input fields, location field, and submit button
-  const inputField = document.getElementById("input-field");
+
   const locationField = document.getElementById("location-field");
   const submitButton = document.getElementById("submit-button");
 
@@ -116,34 +116,19 @@
     }
   });
 
-  // Add event listener to clear location button
-  const clearLocationButton = document.getElementById("clear-location-button");
-  clearLocationButton.addEventListener("click", function(event) {
-    locationField.value = ''; // Clear the location field
-  });
-
-  // Add event listener to submit button
-  submitButton.addEventListener("click", function(event) {
-    // Manually check if the location field is not empty before submitting
-    if (!locationField.value) {
-      alert("Please enter a location before scanning a product."); // Display popup for empty location
-      return;
-    }
-    submitForm();
-  });
 
   // Function to submit the form
   function submitForm() {
     // Retrieve entered location and product data
     const locationData = document.getElementById("location-field").value;
-    const productData = document.getElementById("input-field").value;
+    
 
     // Store data in sessionStorage
     sessionStorage.setItem("location", locationData);
-    sessionStorage.setItem("product", productData);
+   
 
     // Redirect to results.html
-    window.location.href = "results.html";
+    window.location.href = "scanninginventory.html";
   }
 </script>
 

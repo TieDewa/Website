@@ -79,18 +79,21 @@
   <br> <br> 
   <!-- Form element added -->
   <form id="input-form" action="#" method="post">
-    <label for="location-field">Location:</label>
+    <label for="location-field">Current Location:</label>
     <!-- Location input field -->
     <input type="text" id="location-field" autocomplete="off">
     <br> 
     <!-- Clear location button -->
     <button type="button" class="button" id="clear-location-button">Clear Location</button>
     <br> <br>
-    <label>Product:</label>
-    <!-- Input field for product -->
-    <input type="text" id="input-field" autocomplete="off">
-    <br> 
-    <!-- Submit button within the form -->
+   <select id="pasta-selection">
+    <option value="blank">Select Option</option>  
+    <option value="pasta1">Pasta 1</option>
+    <option value="pasta2">Pasta 2</option>
+    <option value="pasta3">Pasta 3</option>
+    <option value="pasta4">Pasta 4</option>
+    <option value="pasta5">Pasta 5</option>
+  </select>
     <button type="button" class="button" id="submit-button">Submit</button>
   </form>
 </div>

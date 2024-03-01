@@ -48,12 +48,6 @@
   // Displaying the pasta selection on the page
   document.getElementById('pasta-selection').textContent = pastaSelection;
   // Display entered location and product data on the page
-
-      const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const pastaSelection = urlParams.get('pasta_selection');
-
-  // Display entered location, product, and pasta selection data on the page
   const enteredDataElement = document.getElementById("entered-data");
   if (locationData && productData) {
     enteredDataElement.innerHTML = `<p>Location: ${locationData}</p><p>Product: ${productData}</p>`;
@@ -65,6 +59,5 @@
     enteredDataElement.textContent = "No data entered.";
   }
 </script>
-
 </body>
 </html>

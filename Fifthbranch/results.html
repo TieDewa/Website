@@ -1,4 +1,76 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="../manifest.json">
+<script src="../index.js"></script>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  .container {
+    max-width: 480px; /* Adjusted max-width to fit within 480px */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in total width */
+    text-align: center; /* Center the content */
+    position: relative; /* Relative positioning for absolute children */
+  }
+  .button {
+    display: inline-block;
+    width: calc(100% - 60px); /* Adjusted width to fit within container */
+    padding: 15px;
+    margin-bottom: 10px; /* Adjusted margin-bottom for spacing between buttons */
+    background-color: #e81c1c;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .button:last-child {
+    margin-bottom: 0;
+  }
+  img {
+    max-width: 100px;
+    height: auto;
+    margin-top: 20px; /* Adjusted margin-top for image */
+  }
+  h1 {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    margin-top: 10px; /* Adjusted margin-top for title */
+  }
+  #back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #e81c1c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  input[type="text"] {
+    width: calc(100% - 40px); /* Adjusted width for the input */
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
   <h1>Results</h1>
   <p>The information entered on the previous page is:</p>
   <strong id="product-selection"></strong>

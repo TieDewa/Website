@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="../manifest.json">
+<script src="../index.js"></script>
 
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  .container {
+    max-width: 480px; /* Adjusted max-width to fit within 480px */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in total width */
+    position: relative;
+    text-align: center; /* Center the content */
+  }
+  .button {
+    display: inline-block;
+    width: calc(100% - 60px); /* Adjusted width to fit within container */
+    padding: 15px;
+    margin-bottom: 10px; /* Adjusted margin-bottom for spacing between buttons */
+    background-color: #e81c1c;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .button:last-child {
+    margin-bottom: 0;
+  }
+  img {
+    max-width: 100px;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  h1 {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    position: absolute;
+    top: 10px; /* Adjusted top position */
+    left: 20px; /* Center the title horizontally */
+  }
+  #back-button {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    background-color: #e81c1c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  input[type="text"] {
+    width: calc(100% - 40px); /* Adjusted width for the input */
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+    #pasta-selection {
+    
+    font-size: 16px; /* Increased font size */
+    padding: 12px; /* Increased padding for easier selection */
+    margin-left: 20px;
+     width: calc(100% - 40px); 
+    margin-top: 50px;
+  }
+  
+  .logout-button {
+    width: 280px; /* Adjusted width to fit content */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="../LetsPastaLogo.png" alt="Image">
+  <br> <br> 
+  <h1>Move <br>Inventory</h1> <br>
+  <a href="../dashboard.html" id="back-button">Back</a><br> <br> <br> 
+  <br>  
+  <!-- Form element added -->
+  <form id="input-form" action="#" method="post">
+    <label for="location-field">Current Location:</label>
+    <!-- Location input field -->
+    <input type="text" id="location-field" autocomplete="off">
+    <br> 
+    <!-- Clear location button -->
+    <button type="button" class="button" id="clear-location-button">Clear Location</button>
+    <br> <br>
+   <select id="pasta-selection">
+    <option value="blank">Select Option</option>  
+    <option value="pasta1">Pasta 1</option>
+    <option value="pasta2">Pasta 2</option>
+    <option value="pasta3">Pasta 3</option>
+    <option value="pasta4">Pasta 4</option>
+    <option value="pasta5">Pasta 5</option>
+  </select>
+    <div class="button-container">
+    <a href="scanninginventory.html?pasta_selection=" class="button" id="submit-button">Proceed</a>
+  </div>
+</div>
+
+<script>
+  // Get reference to input fields, location field, and submit button
+
+  const locationField = document.getElementById("location-field");
+  const submitButton = document.getElementById("submit-button");
+
+  // Add event listener to input field for 'input' event
+  inputField.addEventListener("input", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    const value = event.target.value;
+    if (value.length >= 12) {
+      // Automatically submit the form
+      submitForm();
+    }
+  });
+
+
+  // Function to submit the form
+  function submitForm() {
+    // Retrieve entered location and product data
+    const locationData = document.getElementById("location-field").value;
+    
+
+    // Store data in sessionStorage
+    sessionStorage.setItem("location", locationData);
+   
+
+    // Redirect to results.html
+    window.location.href = "scanninginventory.html";
+  }
+</script>
+
+</body>
+</html>

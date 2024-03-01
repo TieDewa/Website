@@ -132,7 +132,13 @@
     // Retrieve entered location and product data
     const locationData = document.getElementById("location-field").value;
     const productData = document.getElementById("input-field").value;
-    });
+    
+    sessionStorage.setItem("location", locationData);
+    sessionStorage.setItem("product", productData);
+    
+     window.location.href = "results.html";
+    
+    }
     </script>
 
 </body>

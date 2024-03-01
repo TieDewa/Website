@@ -132,15 +132,14 @@
   // Function to submit the form
   function submitForm() {
     // Retrieve entered location and product data
-    const locationData = document.getElementById("location-field").value;
-    const productData = document.getElementById("input-field").value;
+     // Retrieve selected pasta option
+    const pastaSelection = document.getElementById("pasta-selection").value;
 
-    // Store data in sessionStorage
-    sessionStorage.setItem("location", locationData);
-    sessionStorage.setItem("product", productData);
+    // Append selected pasta option to the URL as a query parameter
+    const queryString = `?pasta_selection=${encodeURIComponent(pastaSelection)}`;
 
-    // Redirect to results.html
-    window.location.href = "results.html";
+    // Redirect to results.html with query parameter
+    window.location.href = `results.html${queryString}`;
   }
 </script>
 

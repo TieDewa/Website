@@ -18,8 +18,8 @@
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box; /* Include padding in total width */
-    position: relative;
     text-align: center; /* Center the content */
+    position: relative; /* Relative positioning for absolute children */
   }
   .button {
     display: inline-block;
@@ -39,26 +39,21 @@
   img {
     max-width: 100px;
     height: auto;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    margin-top: 20px; /* Adjusted margin-top for image */
   }
   h1 {
     margin: 0; /* Reset margin */
     padding: 0; /* Reset padding */
-    position: absolute;
-    top: 10px; /* Adjusted top position */
-    left: 20px; /* Center the title horizontally */
+    margin-top: 10px; /* Adjusted margin-top for title */
   }
   #back-button {
     position: absolute;
-    top: 105px;
+    top: 20px;
     left: 20px;
     width: 50px;
     height: 50px;
     background-color: #e81c1c;
     color: #fff;
-    padding: 0; /* Remove padding */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -77,24 +72,23 @@
 <body>
 
 <div class="container">
+  <a href="productinformation.html" id="back-button">Back</a>
   <img src="../LetsPastaLogo.png" alt="Image">
-  <br> <br> 
-  <h1>Scanning</h1> <br>
-  <a href="productinformation.html" id="back-button">
-  <br> <br> 
+  <h1>Scanning</h1>
+  <br>
   <!-- Form element added -->
   <form id="input-form" action="#" method="post">
     <label for="location-field">Location:</label>
     <!-- Location input field -->
     <input type="text" id="location-field" autocomplete="off">
-    <br> 
+    <br>
     <!-- Clear location button -->
     <button type="button" class="button" id="clear-location-button">Clear Location</button>
-    <br> <br>
+    <br><br>
     <label>Product:</label>
     <!-- Input field for product -->
     <input type="text" id="input-field" autocomplete="off">
-    <br> 
+    <br>
     <!-- Submit button within the form -->
     <button type="button" class="button" id="submit-button">Submit</button>
   </form>
@@ -138,15 +132,7 @@
     // Retrieve entered location and product data
     const locationData = document.getElementById("location-field").value;
     const productData = document.getElementById("input-field").value;
-
-    // Store data in sessionStorage
-    sessionStorage.setItem("location", locationData);
-    sessionStorage.setItem("product", productData);
-
-    // Redirect to results.html
-    window.location.href = "results.html";
-  }
-</script>
+    </script>
 
 </body>
 </html>

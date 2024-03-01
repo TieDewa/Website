@@ -92,7 +92,7 @@
     <input type="text" id="input-field" autocomplete="off">
     <br> 
     <!-- Submit button within the form -->
-    <button type="button" class="button" id="submit-button">Submit</button>
+    <button type="submit" class="button" id="submit-button">Submit</button>
   </form>
 </div>
 
@@ -100,7 +100,6 @@
   // Get reference to input fields, location field, and submit button
   const inputField = document.getElementById("input-field");
   const locationField = document.getElementById("location-field");
-  const submitButton = document.getElementById("submit-button");
 
   // Add event listener to input field for 'input' event
   inputField.addEventListener("input", function(event) {
@@ -109,7 +108,7 @@
     const value = event.target.value;
     if (value.length >= 12) {
       // Automatically submit the form
-      submitForm();
+      document.getElementById("input-form").submit();
     }
   });
 
@@ -118,29 +117,6 @@
   clearLocationButton.addEventListener("click", function(event) {
     locationField.value = ''; // Clear the location field
   });
-
-  // Add event listener to submit button
-  submitButton.addEventListener("click", function(event) {
-    // Manually check if the location field is not empty before submitting
-    if (!locationField.value) {
-      alert("Please enter a location before scanning a product."); // Display popup for empty location
-      return;
-    }
-    submitForm();
-  });
-
-  // Function to submit the form
-  function submitForm() {
-    // Retrieve entered location and product data
-     // Retrieve selected pasta option
-    const pastaSelection = document.getElementById("pasta-selection").value;
-
-    // Append selected pasta option to the URL as a query parameter
-    const queryString = `?pasta_selection=${encodeURIComponent(pastaSelection)}`;
-
-    // Redirect to results.html with query parameter
-    window.location.href = `results.html${queryString}`;
-  }
 </script>
 
 </body>

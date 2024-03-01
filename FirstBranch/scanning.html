@@ -136,9 +136,9 @@
     sessionStorage.setItem("location", locationData);
     sessionStorage.setItem("product", productData);
     
-     window.location.href = "results.html";
-    
-    }
+    // Redirect to results page with query parameter
+    window.location.href = `results.html?pasta_selection=${productData}`;
+}
     </script>
 
 </body>

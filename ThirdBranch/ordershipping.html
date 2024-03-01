@@ -92,7 +92,7 @@
     <input type="text" id="input-field" autocomplete="off">
     <br> 
     <!-- Submit button within the form -->
-    <button type="submit" class="button" id="submit-button">Submit</button>
+    <button type="button" class="button" id="submit-button">Submit</button>
   </form>
 </div>
 
@@ -119,7 +119,8 @@
   clearLocationButton.addEventListener("click", function(event) {
     locationField.value = ''; // Clear the location field
   });
-    submitButton.addEventListener("click", function(event) {
+  
+  submitButton.addEventListener("click", function(event) {
     // Manually check if the location field is not empty before submitting
     if (!locationField.value) {
       alert("Please enter a location before scanning a product."); // Display popup for empty location
@@ -137,10 +138,6 @@
     sessionStorage.setItem("location", locationData);
     sessionStorage.setItem("product", productData);
     
-     window.location.href = "Results.html";
-    
-    }
+    window.location.href = "results.html";
+  }
 </script>
-
-</body>
-</html>

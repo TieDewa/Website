@@ -1,74 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="manifest" href="manifest.json">
-<script src="index.js"></script>
-<title>Mobile Screen Sample</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: -30px; /* Move the element up by 20 pixels */
-    padding: 20px;
-    box-sizing: border-box; /* Include padding in total width */
-  }
-  .button {
-    display: block;
-    width: calc(100% - 40px);
-    padding: 15px;
-    margin-bottom: 20px;
-    background-color: #e81c1c;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  .button:last-child {
-      margin: 0 auto;
-  }
-  .welcome {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
-  }
-  input[type="text"] {
-   margin-left: 25px;
-    margin: 0 auto; /* Center the input fields horizontally */
-     width: calc(100% - 40px);
-    padding: 15px;
-    margin-bottom: 12px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .contact-form input[type="text"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
+    <div class="contact-form">
+        <h2>Contact Form</h2>
+        <form action="/process.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea><br><br>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
 
-<div class="container">
-   <br>
-  <img src="LetsPastaLogo.png" alt="Image">
-  <br> <br> <br> <br>
-  <label>Username:</label>
-  <input type="text" id="">
-  <br> <br>
-  <label>Password:</label>
-  <input type="text" id="">
-  <br> <br>
-  <a href="dashboard.html" class="button">Login</a>
-</div>
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
+            const data = new FormData(form);
+
+            fetch('/process.php', {
+                method: 'POST',
+                body: data
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success === true) {
+                    alert('Message sent successfully!');
+                    form.reset();
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -5,6 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 1em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px purple;
+}
+
+nav ul li a:hover {
+    text-shadow: 0 0 10px purple;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    padding: 2em;
+}
+
+#about-me {
+    width: 45%;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 1em;
+}
+
+.info {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.info h1 {
+    text-shadow: 0 0 5px purple;
+}
+
+#projects {
+    width: 45%;
+}
+
+.project {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
+
+.project h2 {
+    text-shadow: 0 0 5px purple;
+}
+
+.project a {
+    color: lightblue;
+    text-decoration: none;
+    border-bottom: 1px solid lightblue;
+}
+
+.project a:hover {
+    color: purple;
+    border-bottom: 1px solid purple;
+}
+    </style>
 </head>
 <body>
     <header>

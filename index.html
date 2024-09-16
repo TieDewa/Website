@@ -3,134 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
+    <title>Your Name - Personal Website</title>
+   
+    <styles>
+    
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000;
+    color: #00FF00; /* Matrix green */
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #333;
-    padding: 1em;
+    background: #000;
+    color: #00FF00;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #00FF00;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
 }
 
 nav ul li {
-    margin: 0 1em;
+    display: inline;
+    margin: 0 10px;
 }
 
-nav ul li a {
-    color: white;
+nav a {
+    color: #00FF00;
     text-decoration: none;
-    font-size: 1.2em;
-    text-shadow: 0 0 5px purple;
-}
-
-nav ul li a:hover {
-    text-shadow: 0 0 10px purple;
-}
-
-main {
-    display: flex;
-    justify-content: space-around;
-    padding: 2em;
-}
-
-#about-me {
-    width: 45%;
 }
 
 .profile {
     display: flex;
     align-items: center;
+    padding: 20px;
 }
 
-.profile img {
+.profile-img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    margin-right: 1em;
+    margin-right: 20px;
 }
 
-.info {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1em;
-    border-radius: 8px;
+.personal-info {
+    max-width: 600px;
 }
 
-.info h1 {
-    text-shadow: 0 0 5px purple;
-}
-
-#projects {
-    width: 45%;
+.projects-list {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .project {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1em;
-    margin-bottom: 1em;
-    border-radius: 8px;
+    flex: 1 1 45%;
+    margin: 10px;
+    background: #222;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.project h2 {
-    text-shadow: 0 0 5px purple;
+.social-links a {
+    margin: 0 10px;
+    color: #00FF00;
 }
 
-.project a {
-    color: lightblue;
-    text-decoration: none;
-    border-bottom: 1px solid lightblue;
+.roadmap-timeline {
+    /* Add your styling for the roadmap section */
 }
 
-.project a:hover {
-    color: purple;
-    border-bottom: 1px solid purple;
+footer {
+    background: #000;
+    color: #00FF00;
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid #00FF00;
 }
-    </style>
+
+    </styles>
 </head>
 <body>
     <header>
+        <h1>Your Name</h1>
         <nav>
             <ul>
-                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <section id="about-me">
+        <section id="about">
             <div class="profile">
-                <img src="profile-pic.jpg" alt="Profile Picture">
-                <div class="info">
-                    <h1>About Me</h1>
-                    <p>Here's some information about me...</p>
+                <img src="your-photo.jpg" alt="Your Name" class="profile-img">
+                <div class="personal-info">
+                    <h2>Your Name</h2>
+                    <p>Brief bio about yourself.</p>
+                    <p><strong>Skills:</strong> Skill 1, Skill 2, Skill 3</p>
+                    <p><strong>Contact:</strong> email@example.com</p>
                 </div>
             </div>
         </section>
-
         <section id="projects">
-            <h1>Projects</h1>
-            <div class="project">
-                <h2>Project 1 Title</h2>
-                <p>Description of Project 1...</p>
-                <a href="link-to-project1.html">View Project</a>
+            <h2>Projects</h2>
+            <div class="projects-list">
+                <div class="project">
+                    <img src="project1-thumbnail.jpg" alt="Project 1">
+                    <h3><a href="project1-link.html">Project 1</a></h3>
+                    <p>Brief description of Project 1.</p>
+                </div>
+                <!-- Repeat for other projects -->
             </div>
-            <!-- Repeat the above for each project -->
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+                <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+                <!-- Add other social links -->
+            </div>
+        </section>
+        <section id="roadmap">
+            <h2>Roadmap</h2>
+            <div class="roadmap-timeline">
+                <!-- Add your roadmap or timeline details here -->
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me via email at <a href="mailto:email@example.com">email@example.com</a>.</p>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
 </body>
 </html>

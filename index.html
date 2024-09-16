@@ -100,19 +100,41 @@
             line-height: 1.6;
         }
 
-        .roadmap {
+        .socials {
             flex: 2;
         }
 
-        .roadmap h2 {
+        .socials h2 {
             margin-top: 0;
             font-size: 28px;
             border-bottom: 2px solid #007aff; /* Blue underline for section title */
             padding-bottom: 10px;
         }
 
-        .roadmap-timeline {
-            font-size: 16px;
+        .socials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .social a {
+            color: #007aff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .social a:hover {
+            color: #005bb5; /* Darker blue on hover */
         }
 
         .projects {
@@ -163,7 +185,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#socials">Socials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -178,11 +200,25 @@
                 <p><strong>Contact:</strong> email@example.com</p>
             </div>
         </div>
-        <div class="column roadmap">
-            <h2>Roadmap</h2>
-            <div class="roadmap-timeline">
-                <!-- Add your roadmap or timeline details here -->
-                <p>Details of your roadmap or progress.</p>
+        <div class="column socials" id="socials">
+            <h2>Socials</h2>
+            <div class="socials-list">
+                <div class="social">
+                    <h3><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></h3>
+                    <p>Professional network and updates.</p>
+                </div>
+                <div class="social">
+                    <h3><a href="https://github.com/yourprofile" target="_blank">GitHub</a></h3>
+                    <p>Portfolio of code and projects.</p>
+                </div>
+                <div class="social">
+                    <h3><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></h3>
+                    <p>Personal photos and stories.</p>
+                </div>
+                <div class="social">
+                    <h3><a href="resume.pdf" target="_blank">Resume</a></h3>
+                    <p>Download my resume for more details.</p>
+                </div>
             </div>
         </div>
         <div class="column projects">

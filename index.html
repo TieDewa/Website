@@ -101,7 +101,7 @@
         }
 
         .socials {
-            flex: 2;
+            flex: 1;
         }
 
         .socials h2 {
@@ -137,34 +137,45 @@
             color: #005bb5; /* Darker blue on hover */
         }
 
-        .projects {
-            flex: 1;
+        .github {
+            flex: 2;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            align-items: center;
+            justify-content: center;
         }
 
-        .project {
+        .github h2 {
+            margin-top: 0;
+            font-size: 28px;
+            border-bottom: 2px solid #007aff; /* Blue underline for section title */
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .github p {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .repo {
             background: #ffffff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             border: 1px solid #ddd;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            text-align: center;
         }
 
-        .project h3 {
-            margin-top: 0;
-            font-size: 20px;
-        }
-
-        .project a {
+        .repo a {
             color: #007aff;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
-        .project a:hover {
+        .repo a:hover {
             color: #005bb5; /* Darker blue on hover */
         }
 
@@ -184,7 +195,7 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#github">GitHub</a></li>
                 <li><a href="#socials">Socials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -200,16 +211,19 @@
                 <p><strong>Contact:</strong> email@example.com</p>
             </div>
         </div>
+        <div class="column github" id="github">
+            <h2>GitHub</h2>
+            <p>Visit my GitHub profile to see all my repositories and latest updates.</p>
+            <div id="repo-list">
+                <!-- Repositories will be inserted here by JavaScript -->
+            </div>
+        </div>
         <div class="column socials" id="socials">
             <h2>Socials</h2>
             <div class="socials-list">
                 <div class="social">
                     <h3><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></h3>
                     <p>Professional network and updates.</p>
-                </div>
-                <div class="social">
-                    <h3><a href="https://github.com/yourprofile" target="_blank">GitHub</a></h3>
-                    <p>Portfolio of code and projects.</p>
                 </div>
                 <div class="social">
                     <h3><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></h3>
@@ -221,23 +235,36 @@
                 </div>
             </div>
         </div>
-        <div class="column projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3><a href="project1-link.html">Project 1</a></h3>
-                <p><strong>Type:</strong> Web Development</p>
-                <p>Brief description of Project 1.</p>
-            </div>
-            <div class="project">
-                <h3><a href="project2-link.html">Project 2</a></h3>
-                <p><strong>Type:</strong> Data Science</p>
-                <p>Brief description of Project 2.</p>
-            </div>
-            <!-- Repeat for other projects -->
-        </div>
     </div>
     <footer>
         <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const repoList = document.getElementById('repo-list');
+
+            // Replace 'yourusername' with your GitHub username
+            fetch('https://api.github.com/users/TieDewa/repos')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(repo => {
+                        const repoElement = document.createElement('div');
+                        repoElement.classList.add('repo');
+                        repoElement.innerHTML = `
+                            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                            <p><strong>Description:</strong> ${repo.description || 'No description available'}</p>
+                            <p><strong>Language:</strong> ${repo.language || 'N/A'}</p>
+                            <p><strong>Stars:</strong> ${repo.stargazers_count}</p>
+                        `;
+                        repoList.appendChild(repoElement);
+                    });
+                })
+                .catch(error => {
+                    repoList.innerHTML = '<p>Unable to load repositories. Please try again later.</p>';
+                    console.error('Error fetching GitHub repos:', error);
+                });
+        });
+    </script>
 </body>
 </html>
